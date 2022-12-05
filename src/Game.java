@@ -58,6 +58,7 @@ public class Game {
         for (var row: field) {
             Arrays.fill(row, CellColor.COLORLESS);
         }
+        stepNum = 0;
         // start with white
         curColor = CellColor.BLACK;
 

@@ -59,6 +59,12 @@ public final class GameWindow extends JFrame {
             setContentPane(new GameLayout());
             revalidate();
 
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+
             // new value must have type boolean
             invokeLater(() -> Game.startGame((Boolean) e.getNewValue()));
         });
@@ -107,6 +113,7 @@ public final class GameWindow extends JFrame {
         pcs.addPropertyChangeListener("finishGame", e -> {
             // remove game listeners (including this)
             GameLayout.addFinishButtons();
+            repaint();
         });
 
         pcs.firePropertyChange("startGame", null, null);

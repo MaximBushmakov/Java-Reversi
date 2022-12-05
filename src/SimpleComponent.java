@@ -31,7 +31,8 @@ public class SimpleComponent {
         public Button(String text, int size, int x, int y, ActionListener action) {
             setText(text);
             setFont(simpleFont.deriveFont(Font.PLAIN, size));
-            int width = getPreferredSize().width,
+            // need some additional space for font to show properly
+            int width = getPreferredSize().width + 10,
                     height = getPreferredSize().height;
             setBounds(x - width / 2, y - height / 2, width, height);
             setBackground(Color.WHITE);
